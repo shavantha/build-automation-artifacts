@@ -83,4 +83,3 @@ Executing the script
 ====================
 Past the script on Script Console option available under the Manage Jenkins option and click on run button to execute the results.
 
-
