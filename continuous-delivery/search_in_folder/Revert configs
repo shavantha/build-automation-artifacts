@@ -213,7 +213,7 @@ println("The build is run at ${now.time}");
     String url="http://maven.wso2.org/nexus/content/repositories/snapshots/";
     boolean uniqueVersion=true;
     boolean evenIfUnstable=false;
-    String releaseEnvVar="IS_M2RELEASEBUILD";
+    String releaseEnvVar="";
     BuildListener listener;  
    
       
@@ -229,7 +229,11 @@ println("The build is run at ${now.time}");
      
        if (envVarValue != null)
           { 
+            //Removes the existing object fully
             envVarValue=it.getPublishersList().clear()
+            it.save()
+            //Adds a new object without a value set to releaseEnvVar
+            envVarValue=it.getPublishersList().add(rdp)
             it.save()
             action = "established"
           }              
